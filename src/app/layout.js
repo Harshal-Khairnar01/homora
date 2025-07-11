@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Poppins } from "next/font/google";
+import { getAuthSession } from "@/utils/auth";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,9 @@ const poppins=Poppins({
   subsets:['latin']
 })
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session=await getAuthSession();
+  console.log(session);
   return (
     <html lang="en" >
       <body
