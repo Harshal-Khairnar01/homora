@@ -13,6 +13,7 @@
     "@prisma/client": "^6.11.1",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-slot": "^1.2.3",
+    "@vercel/blob": "^1.1.1",
     "axios": "^1.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -23,7 +24,10 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.60.0",
-    "tailwind-merge": "^3.3.1"
+    "react-select": "^5.10.2",
+    "react-world-flags": "^1.6.0",
+    "tailwind-merge": "^3.3.1",
+    "world-countries": "^5.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
