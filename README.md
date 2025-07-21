@@ -95,3 +95,37 @@
 - Enhance UI with more Radix UI or custom components.
 
 ---
+
+### Become a Host
+
+The **Become a Host** page allows authenticated users to list their own properties on HOMORA. This multi-step form guides hosts through the process of adding a new property, including:
+
+- **Category Selection**: Choose the type of property (e.g., villa, house).
+- **Location**: Select the property's country/location.
+- **Details**: Specify room, guest, and child counts.
+- **Images**: Upload property images.
+- **Description**: Add a title and description for the listing.
+- **Pricing**: Set the nightly price.
+
+**Access**:
+
+- Only authenticated users can access this page. Unauthenticated users are prompted to sign in.
+
+**Component**:
+
+- The form is implemented in `BecomeAHostComponent`, which manages step navigation, validation, and submission.
+
+**How to Use**:
+
+1. Navigate to `/become-a-host` after signing in.
+2. Complete each step of the form.
+3. Submit to list your property.
+
+**Extending**:
+
+- Add more steps or fields by updating `BecomeAHostComponent`.
+- Customize categories and validations as needed.
+
+---
+
+---
