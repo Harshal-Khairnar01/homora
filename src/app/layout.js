@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Poppins } from "next/font/google";
 import { getAuthSession } from "@/utils/auth";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata = {
   title: "Create Next App",
@@ -24,6 +25,7 @@ export default async function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
+        <Toaster/>
       </body>
     </html>
   );
