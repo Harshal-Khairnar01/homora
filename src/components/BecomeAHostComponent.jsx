@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const STEPS = {
   CATEGORY: 0,
@@ -30,6 +32,7 @@ const STEPS = {
 
 const BecomeAHostComponent = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
+  const router = useRouter();
 
   const setCustomValue = (title, value) => {
     setValue(title, value);
@@ -85,10 +88,13 @@ const BecomeAHostComponent = () => {
   const onBack = () => {
     setStep((step) => step - 1);
   };
-  const onNext = () => {
-    if(step!==STEPS.PRICE)setStep((step) => step + 1);
-    else{
-      axios.post() 
+  const onNext = (data) => {
+    if (step !== STEPS.PRICE) setStep((step) => step + 1);
+    else {
+      axios.post(`api/v1/listing`, data).then(() => {
+        toast("Yee! Property Listed!");
+        router.push("/properties");
+      });
     }
   };
 
@@ -150,7 +156,9 @@ const BecomeAHostComponent = () => {
         </h1>
         <div className=" flex justify-between">
           <span>
-            <h3 className=" text-lg font-semibold text-gray-600">How many rooms do you want?</h3>
+            <h3 className=" text-lg font-semibold text-gray-600">
+              How many rooms do you want?
+            </h3>
             <h5>Choose a room count</h5>
           </span>
           <CounterInput
@@ -161,7 +169,9 @@ const BecomeAHostComponent = () => {
         <div className=" w-full h-[0.4px] bg-gray-800 my-5" />
         <div className=" flex justify-between">
           <span>
-            <h3 className=" text-lg font-semibold text-gray-600">How many children do you have?</h3>
+            <h3 className=" text-lg font-semibold text-gray-600">
+              How many children do you have?
+            </h3>
             <h5>Choose a children count</h5>
           </span>
           <CounterInput
@@ -172,7 +182,9 @@ const BecomeAHostComponent = () => {
         <div className=" w-full h-[0.4px] bg-gray-800 my-5" />
         <div className=" flex justify-between">
           <span>
-            <h3 className=" text-lg font-semibold text-gray-600">How many Adults are planning to join?</h3>
+            <h3 className=" text-lg font-semibold text-gray-600">
+              How many Adults are planning to join?
+            </h3>
             <h5>Choose a guest count</h5>
           </span>
           <CounterInput
@@ -242,7 +254,7 @@ const BecomeAHostComponent = () => {
             <ArrowLeft size={20} className=" text-white" />
           </button>
           <button
-            onClick={onNext}
+            onClick={handleSubmit(onNext)}
             className=" p-4  rounded-full bg-red-400 cursor-pointer disabled:bg-gray-400"
             disabled={!isStepValid}
           >
