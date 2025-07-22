@@ -11,7 +11,10 @@ const BecomeAHost = async () => {
         <div>
           <h1 className=" text-xl md:text-2xl font-bold">Not Authorized</h1>
           <span>
-            To add Your Properties, <Link className=" underline" href="/sign-in">Sign In</Link>
+            To add Your Properties,{" "}
+            <Link className=" underline" href="/sign-in">
+              Sign In
+            </Link>
           </span>
         </div>
       </section>
@@ -19,7 +22,7 @@ const BecomeAHost = async () => {
   }
   return (
     <div>
-     <BecomeAHostComponent/>
+      <BecomeAHostComponent />
     </div>
   );
 };

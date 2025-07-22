@@ -10,12 +10,7 @@ import { Input } from "./ui/input";
 import CounterInput from "./CounterInput";
 import ImageUpload from "./ImageUpload";
 import { Textarea } from "./ui/textarea";
-import {
-  ArrowLeft,
-  ArrowLeftCircle,
-  ArrowRight,
-  ArrowRightCircle,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -34,10 +29,6 @@ const BecomeAHostComponent = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
   const router = useRouter();
 
-  const setCustomValue = (title, value) => {
-    setValue(title, value);
-  };
-
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
       category: "",
@@ -49,6 +40,10 @@ const BecomeAHostComponent = () => {
       price: null,
     },
   });
+
+  const setCustomValue = (title, value) => {
+    setValue(title, value);
+  };
 
   const category = watch("category");
   const location = watch("location");

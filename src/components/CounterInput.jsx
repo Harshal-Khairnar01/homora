@@ -16,7 +16,7 @@ const CounterInput = ({ value, onChange }) => {
       <div className=" cursor-pointer" onClick={onAdd}>
         <CirclePlus />
       </div>
-      <div>{value||0}</div>
+      <div>{value || 0}</div>
       <div className=" cursor-pointer" onClick={onReduce}>
         <CircleMinus />
       </div>

@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Poppins } from "next/font/google";
 import { getAuthSession } from "@/utils/auth";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "Create Next App",
@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
-        <Toaster/>
+        <Toaster  position="top-center" richColors duration={3000} closeButton />
       </body>
     </html>
   );
