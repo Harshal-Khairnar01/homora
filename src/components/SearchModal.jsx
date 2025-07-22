@@ -1,11 +1,12 @@
 "use client";
 
 import { X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Button } from "./ui/button";
 import CountrySelect from "./CountrySelect";
 import CalenderInput from "./CalenderInput";
 import CounterInput from "./CounterInput";
+import { useRouter } from "next/navigation";
 
 const STEPS = {
   LOCATION: 0,
@@ -26,6 +27,8 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
     endDate: new Date(),
     key: "selection",
   });
+
+  const router = useRouter();
 
   const sourceToReturn = {
     [STEPS.LOCATION]: (
@@ -71,13 +74,38 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
     setStep((prev) => prev - 1);
   };
 
-  const onNext = () => {
-    if(step == Object.keys(STEPS).length - 1) {
-       
-      return;
+  const onNext = useCallback(() => {
+    if (step == Object.keys(STEPS).length - 1) {
+      const trackOfQueryParams = {
+        ...(location?.value && { location: location.value }),
+        ...(guestCount && { guestCount: guestCount }),
+        ...(roomCount && { roomCount: roomCount }),
+        ...(childCount && { childCount: childCount }),
+        ...(dateRange.startDate &&
+          dateRange.endDate && {
+            startDate: dateRange.startDate,
+            endDate: dateRange.endDate,
+          }),
+      };
+
+      if (Object.keys(trackOfQueryParams).length === 0) return;
+
+      const queryString = Object.keys(trackOfQueryParams)
+        .map(
+          (key) =>
+            `${encodeURIComponent(key)}=${encodeURIComponent(
+              trackOfQueryParams[key]
+            )}`
+        )
+        .join("&");
+
+      const url = `/?${queryString}`;
+      setIsOpen(false);
+      setStep(STEPS.LOCATION);
+      router.push(url);
     }
     setStep((prev) => prev + 1);
-  };
+  }, [step, location, guestCount, roomCount, childCount, dateRange]);
 
   const labelForLastButton =
     step == Object.keys(STEPS).length - 1 ? "Search" : "Next";
