@@ -24,7 +24,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className=" px-5 md:px-16 flex lg:px-20  justify-between py-3 bg-muted items-center">
+    <div className=" px-5 md:px-16 flex lg:px-20  justify-between py-3 bg-muted items-center border-b">
       <div className="logo flex gap-2 items-center">
         <Icons.logo className=" w-6 " />
         <span className=" text-red-400 font-semibold text-lg">Homora</span>

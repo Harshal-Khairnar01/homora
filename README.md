@@ -4,9 +4,46 @@
 
 **HOMORA** is a modern accommodation booking platform inspired by Airbnb, built with Next.js, React, Prisma, and MongoDB. It features user authentication (Google and credentials), property listings, reservations, and a clean, component-driven UI.
 
----
+### Searching Functionality
 
-### Features
+HOMORA provides a flexible and interactive search experience for users to find properties based on various criteria.
+
+**Key Features:**
+
+- **Category Filtering:**  
+  The `CategoryHandler` component displays available property categories. Users can select a category, which updates the URL query parameter (`cat`) and filters the displayed listings accordingly.
+
+- **Location, Date, and People Count:**  
+  The search bar in the `Navbar` allows users to filter properties by location, date, and guest count.
+
+  - Location selection is handled via a country picker.
+  - Date selection uses a calendar input (`CalenderInput`).
+  - Guest and room counts are managed with counter inputs.
+
+- **URL-based Filtering:**  
+  Search parameters are managed using Next.js's `useSearchParams` and `useRouter` hooks, enabling deep linking and browser navigation.
+
+- **Component-driven UI:**
+
+  - `CategoryHandler`: Handles category selection and updates search parameters.
+  - `CalenderInput`: Allows users to pick date ranges for their stay.
+  - Counter inputs for specifying guest and room counts.
+
+- **Extensible Search:**  
+  The search system is modular, allowing for easy addition of new filters or search criteria.
+
+**How to Use:**
+
+1. Use the category bar to filter by property type.
+2. Use the search bar to specify location, date, and guest details.
+3. The page updates to show matching properties based on selected filters.
+
+**Extending:**
+
+- Add new filters by updating the search bar and query parameter handling.
+- Integrate backend search APIs for advanced filtering and sorting.
+
+---
 
 - **User Authentication**: Sign up/sign in with Google or email/password using NextAuth.js.
 - **Property Listings**: Users can list properties (villas/houses) with details.
