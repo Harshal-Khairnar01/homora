@@ -51,7 +51,7 @@ model Reservation {
   listing   Listing @relation(fields: [listingId], references: [id])
 
   startDate  DateTime
-  endTime    DateTime
+  endDate    DateTime
   totalPrice Int
 }
 
