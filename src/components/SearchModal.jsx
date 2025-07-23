@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import CountrySelect from "./CountrySelect";
 import CalenderInput from "./CalenderInput";
 import CounterInput from "./CounterInput";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const STEPS = {
   LOCATION: 0,
@@ -29,6 +29,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
   });
 
   const router = useRouter();
+  const searchParams=useSearchParams();
 
   const sourceToReturn = {
     [STEPS.LOCATION]: (
@@ -99,7 +100,13 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
         )
         .join("&");
 
-      const url = `/?${queryString}`;
+      
+        const params=new URLSearchParams(searchParams.toString());
+
+        const tempCat=params.get('cat');
+
+
+      const url = `/?${queryString}&cat=${tempCat}`;
       setIsOpen(false);
       setStep(STEPS.LOCATION);
       router.push(url);
