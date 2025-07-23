@@ -77,7 +77,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
   const onNext = useCallback(() => {
     if (step == Object.keys(STEPS).length - 1) {
       const trackOfQueryParams = {
-        ...(location?.value && { location: location.value }),
+        ...(location?.value && { locationValue: location.value }),
         ...(guestCount && { guestCount: guestCount }),
         ...(roomCount && { roomCount: roomCount }),
         ...(childCount && { childCount: childCount }),
