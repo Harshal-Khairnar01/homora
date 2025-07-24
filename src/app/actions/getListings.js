@@ -13,7 +13,7 @@ export async function getListings(searchParams) {
       childCount,
       startDate,
       endDate,
-      cat
+      cat,
     } = resolvedSearchParams;
 
     let query = {};
@@ -23,7 +23,7 @@ export async function getListings(searchParams) {
       ...(guestCount && { guestCount: { gte: +guestCount } }),
       ...(roomCount && { roomCount: { gte: +roomCount } }),
       ...(childCount && { childCount: { gte: +childCount } }),
-      ...(cat && { category:cat}),
+      ...(cat && { category: cat }),
     };
 
     if (startDate && endDate) {
@@ -62,7 +62,7 @@ export async function getListings(searchParams) {
       createdAt: listing.createdAt.toISOString(),
     }));
 
-    console.log(modifiedListings)
+    console.log(modifiedListings);
 
     return listings;
   } catch (error) {
