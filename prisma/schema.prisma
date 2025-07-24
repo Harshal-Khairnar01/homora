@@ -37,7 +37,7 @@ model Listing {
   guestCount    Int
   locationValue String
   price         Int
-  User          User?         @relation(fields: [userId], references: [id])
+  user          User?         @relation(fields: [userId], references: [id])
   userId        String?       @db.ObjectId
   reservations  Reservation[]
 }
@@ -45,7 +45,7 @@ model Listing {
 model Reservation {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   // this means a simple booking of a villa for a user
-  User      User?   @relation(fields: [userId], references: [id])
+  user      User?   @relation(fields: [userId], references: [id])
   userId    String? @db.ObjectId
   listingId String  @db.ObjectId
   listing   Listing @relation(fields: [listingId], references: [id])
