@@ -43,10 +43,76 @@ HOMORA provides a flexible and interactive search experience for users to find p
 - Add new filters by updating the search bar and query parameter handling.
 - Integrate backend search APIs for advanced filtering and sorting.
 
+### Single Listing Page
+
+The **Single Listing Page** displays detailed information about a specific property, allowing users to view all relevant details and make a reservation.
+
+**Key Features:**
+
+- **Property Details:**  
+  Shows the title, location, images, host information, guest/room/child counts, and category.
+- **Host Info:**  
+  Displays the host's name and profile image.
+- **Category Highlight:**  
+  Shows the property's category and its unique features.
+- **Description:**  
+  Full property description, formatted for readability.
+- **Homora Shield:**  
+  Information about booking protection and support.
+- **Reservation:**  
+  Integrated `ReservationComponent` allows users to select dates for booking using a calendar input.
+- **Pricing:**  
+  Clearly displays the nightly price.
+
+**How to Use:**
+
+1. Navigate to `/listings/[id]` for any property.
+2. Review all property details.
+3. Select your desired dates and proceed with reservation.
+
+**Extending:**
+
+- Add more property attributes or booking options.
+- Integrate reviews, ratings, or additional host details.
+- Enhance reservation logic for availability and pricing.
+
+### Reservation Functionality
+
+HOMORA enables users to reserve/book properties directly from the single listing page, with a user-friendly and robust reservation system.
+
+**Key Features:**
+
+- **Date Selection:**
+
+  - The `ReservationComponent` provides a calendar input for users to select their desired date range for booking.
+  - Booked/unavailable dates are blocked based on existing reservations, preventing double bookings.
+
+- **Dynamic Pricing:**
+
+  - The nightly price is displayed, and the total cost can be calculated based on the selected date range.
+
+- **Reservation Submission:**
+
+  - When a user selects dates and confirms, a reservation is created for the listing.
+  - The system checks for conflicts and only allows valid bookings.
+
+- **Integration:**
+  - The reservation component receives the listing ID, price per day, and existing reservations as props, ensuring accurate availability and pricing.
+
+**How to Use:**
+
+1. On the single listing page, select your desired check-in and check-out dates using the calendar.
+2. Review the price and details.
+3. Confirm your reservation to book the property.
+
+**Extending:**
+
+- Add payment integration for paid bookings.
+- Show a summary of all user reservations in their profile.
+- Add cancellation and modification options for reservations.
+
 ---
 
-- **User Authentication**: Sign up/sign in with Google or email/password using NextAuth.js.
-- **Property Listings**: Users can list properties (villas/houses) with details.
 - **Reservations**: Bookings for properties with date and guest management.
 - **Favorites**: Users can favorite properties.
 - **Responsive UI**: Built with Tailwind CSS and Radix UI components.
