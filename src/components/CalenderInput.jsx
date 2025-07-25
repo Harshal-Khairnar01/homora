@@ -7,13 +7,14 @@ import React from "react";
 
 import { DateRange } from "react-date-range";
 
-const CalenderInput = ({ value, onChange, ...props }) => {
+const CalenderInput = ({ value, onChange,disabledDates, ...props }) => {
   return (
     <div>
       <DateRange
         ranges={[value]}
         minDate={new Date()}
         onChange={onChange}
+        disabledDates={disabledDates}
         {...props}
       />
     </div>
