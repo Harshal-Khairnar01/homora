@@ -11,6 +11,7 @@ import {
 } from "./ui/dropdown-menu";
 import { useState } from "react";
 import SearchModal from "./SearchModal";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,9 +78,9 @@ const UserComponent = () => {
         <CircleUserRound className=" text-red-500" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem>My Bookings</DropdownMenuItem>
-        <DropdownMenuItem>My Favorites</DropdownMenuItem>
-        <DropdownMenuItem>My Properties</DropdownMenuItem>
+        <DropdownMenuItem> <Link href="/bookings">  My Bookings  </Link> </DropdownMenuItem>
+        <DropdownMenuItem> <Link href="/favorites">  My Favorites  </Link> </DropdownMenuItem>
+        <DropdownMenuItem> <Link href="/properties">  My Properties  </Link> </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Airbnb your home</DropdownMenuItem>
       </DropdownMenuContent>
