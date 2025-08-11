@@ -43,12 +43,12 @@ model Listing {
 }
 
 model Reservation {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   // this means a simple booking of a villa for a user
-  user      User?   @relation(fields: [userId], references: [id])
-  userId    String? @db.ObjectId
-  listingId String  @db.ObjectId
-  listing   Listing @relation(fields: [listingId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?  @db.ObjectId
+  listingId String?  @db.ObjectId
+  listing   Listing? @relation(fields: [listingId], references: [id])
 
   startDate  DateTime
   endDate    DateTime

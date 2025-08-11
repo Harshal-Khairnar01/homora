@@ -43,15 +43,13 @@ const LoginForm = ({ origin = "signIn" }) => {
         // about to make an api call
         axios.post("/api/auth/register", data).then((res) => {
           if (res.status === 201) {
-            toast.success("Registered successfully 🎉");
-            console.log("User registered successfully");
+            toast.success("Registered successfully ");
             reset();
             router.push("/sign-in");
           }
         });
       }
     } catch (error) {
-      console.log(error.message);
       toast.error("Something went wrong ❌");
     } finally {
       setLoading(false);

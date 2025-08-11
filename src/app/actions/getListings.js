@@ -62,7 +62,7 @@ export async function getListings(searchParams) {
       createdAt: listing.createdAt.toISOString(),
     }));
 
-    console.log(modifiedListings);
+ 
 
     return listings;
   } catch (error) {

@@ -5,11 +5,8 @@ export async function POST(request) {
   const body = await request.json();
   const { name, email, password } = body;
 
-  if(!name.trim() || !email.trim() || !password.trim()) {
-    return NextResponse.json(
-      { message: "Fields are empty!" },
-      { status: 400 }
-    );
+  if (!name.trim() || !email.trim() || !password.trim()) {
+    return NextResponse.json({ message: "Fields are empty!" }, { status: 400 });
   }
 
   const hashedPassword = hash(password);
@@ -27,10 +24,11 @@ export async function POST(request) {
       status: 201,
     });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return NextResponse.json(
       {
-        message: error.message || "Something went wrong while registering the user",
+        message:
+          error.message || "Something went wrong while registering the user",
       },
       { status: 500 }
     );

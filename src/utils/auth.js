@@ -19,7 +19,6 @@ export const authOptions={
             password:{label:'password',type:'password'}
         },
         async authorize(credentials){
-            console.log(credentials,"cc")
             if(!credentials.email || !credentials.password){
                 throw new Error("Invalid credentials");
             }
