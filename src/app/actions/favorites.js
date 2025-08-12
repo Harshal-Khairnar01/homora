@@ -51,3 +51,23 @@ export async function deleteFavorite(id) {
     return { ok: false, message: "Could not delete", status: 500 };
   }
 }
+
+export async function getFavorites() {
+  const user = await getUser();
+  if (!user) return { ok: false, message: "Not auth", status: 403 };
+
+  try {
+    const favoriteListings = await prisma.listing.findMany({
+      where: {
+        id: {
+          in: [...(user.favorite || [])],
+        },
+      },
+    });
+  
+    return { ok: true, data: favoriteListings, status: 200 };
+  } catch (error) {
+    console.log(error.message);
+    return { ok: false, message: error.message, status: 500 };
+  }
+}
