@@ -10,8 +10,7 @@ import Image from "next/image";
 export default async function SignleListingPage({ params }) {
   const { id } = params;
   const data = await getListingById(id);
-  const reservations =await getReservationsById(id);
-
+  const reservations = await getReservationsById(id);
 
   const { getByValue } = useCountries();
   const country = getByValue(data.locationValue);
@@ -23,10 +22,10 @@ export default async function SignleListingPage({ params }) {
   return (
     <div className=" p-4 md:p-8">
       <div className=" main-wrapper  w-full md:w-[60%] mx-auto">
-        <h1 className=" text-xl font-bold sm:text-2xl md:text-5xl lg:text-7xl">
+        <h1 className=" text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
           {data.title}
         </h1>
-        <div className="  text-xl text-gray-500 my-1">
+        <div className="  text-lg text-gray-500 ">
           {country.label},&nbsp;
           {country.region}
         </div>
@@ -40,13 +39,20 @@ export default async function SignleListingPage({ params }) {
         <div className=" grid grid-cols-5 gap-10">
           <div className="left col-span-5 lg:col-span-3 space-y-4">
             <div className=" flex flow-row items-center gap-2">
-             <span>
-               <h5>
-                Hosted by{" "}
-                <span className=" font-semibold">{data.user.name}</span>
-              </h5>
-              <p>Listed on {new Date(data.createdAt).toLocaleDateString('en-In',{day:'numeric',month:'short',year:'numeric'})}</p>
-             </span>
+              <span>
+                <h5>
+                  Hosted by{" "}
+                  <span className=" font-semibold">{data.user.name}</span>
+                </h5>
+                <p>
+                  Listed on{" "}
+                  {new Date(data.createdAt).toLocaleDateString("en-In", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </p>
+              </span>
               <Image
                 className=" rounded-full"
                 src={data.user.image}
