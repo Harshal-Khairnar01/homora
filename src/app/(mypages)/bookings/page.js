@@ -22,6 +22,7 @@ const Bookings = async () => {
   }
   return (
     <div className=" p-4 md:p-8">
+      <h1 className=" text-2xl font-semibold mb-3">My Bookings</h1>
       <div className=" grid grid-cols-2 md:grid-cols-4 gap-5 p-2">
         {reservations.map((each) => (
           <BookedCard key={each.id} reservation={each} />
