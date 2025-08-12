@@ -120,7 +120,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
   return (
     <>
       {isOpen && (
-        <div className=" fixed top-0 left-0  w-full h-screen">
+        <div className=" fixed top-0 left-0  w-full h-screen z-50">
           <div className=" w-full relative h-screen bg-black/50">
             <div className="modal_content absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-full md:w-3/5 min-h-[300px]  text-black p-5 rounded-md shadow-lg">
               {sourceToReturn[step]}

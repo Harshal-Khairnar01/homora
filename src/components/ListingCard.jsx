@@ -31,7 +31,11 @@ const ListingCard = ({
           alt={listing.title}
         />
       </div>
-      <FavoriteBtn user={user} listingId={listing.id} className=" absolute top-6 right-6  text-red-500" />
+      <FavoriteBtn
+        user={user}
+        listingId={listing.id}
+        className=" absolute top-6 right-6  text-red-500"
+      />
 
       <p className=" font-semibold text-lg md:text-2xl capitalize pt-2">
         {listing.title}
