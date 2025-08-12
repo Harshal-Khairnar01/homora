@@ -4,10 +4,6 @@ import CategoryHandler from "@/components/CategoryHandler";
 import { getAuthSession } from "@/utils/auth";
 import { getUser } from "./actions/getUser";
 
-export const metadata = {
-  title: "Homora:",
-};
-
 export default async function Home({ searchParams }) {
   const user = await getUser();
   const listings = await getListings(searchParams);
@@ -29,7 +25,7 @@ export default async function Home({ searchParams }) {
   return (
     <section className=" ">
       <CategoryHandler />
-      <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:p-6">
+      <div className=" grid grid-cols-3 md:grid-cols-6 gap-4 p-4 md:p-6">
         {listings.map((listing) => {
           return <ListingCard user={user} key={listing.id} listing={listing} />;
         })}

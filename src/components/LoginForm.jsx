@@ -33,14 +33,14 @@ const LoginForm = ({ origin = "signIn" }) => {
           if (res?.ok) {
             toast.success("Logged in successfully ✅");
             reset();
-            router.refresh();
+            router.push("/");
+              router.refresh();
           } else if (res?.error) {
             toast.error("Login failed ❌");
             console.error("Something went wrong:", res.error);
           }
         });
       } else {
-        // about to make an api call
         axios.post("/api/auth/register", data).then((res) => {
           if (res.status === 201) {
             toast.success("Registered successfully ");
@@ -72,7 +72,7 @@ const LoginForm = ({ origin = "signIn" }) => {
           {origin == "signUp" ? "Sign Up" : "Sign In"}
         </Button>
         <Button
-          onClick={() => signIn("google")}
+          onClick={() => signIn("google", { callbackUrl: "/" })}
           className=" w-full"
           type="button"
         >
