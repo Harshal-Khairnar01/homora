@@ -20,7 +20,7 @@ const ListingCard = ({
   return (
     <Link
       href={`/listings/${listing.id}`}
-      className=" p-3 rounded shadow border border-gray-200 relative "
+      className=" p-3 shadow border border-gray-200 relative   rounded-md hover:scale-[1.01] hover:bg-gray-100 transition-all duration-200 delay-100"
     >
       <div className="w-full aspect-square rounded-lg  ">
         <Image
@@ -37,18 +37,35 @@ const ListingCard = ({
         className=" absolute top-6 right-6  text-red-500"
       />
 
-      <p className=" font-semibold text-lg md:text-2xl capitalize pt-2">
+      <p className=" font-semibold text-lg md:text-xl capitalize pt-2">
         {listing.title}
       </p>
       {reservationData ? (
-        <p>Paid {formatMoney(reservationData.totalPrice)} rupees</p>
+        <div>
+          <p className=" font-semibold text-gray-800">
+            Paid {formatMoney(reservationData.totalPrice)} rupees
+          </p>
+          <p className=" text-xs">
+            {new Date(reservationData.startDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}{" "}
+            to{" "}
+            {new Date(reservationData.endDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </p>
+        </div>
       ) : (
-        <p className=" text-lg flex gap-1 items-center">
+        <p className=" text-base flex gap-1 items-center">
           <IndianRupee size={15} />
           {formatMoney(listing.price)} per night
         </p>
       )}
-      <div className=" text-gray-500 ">
+      <div className=" text-gray-500 text-sm ">
         {countryDetails.label},&nbsp;
         {countryDetails.region}
       </div>
