@@ -16,15 +16,13 @@ const BookedCard = ({ reservation }) => {
     }
   };
   return (
-    <div>
-      <ListingCard
+    <ListingCard
       reservationData={reservation}
-        listing={reservation.listing}
-        showSecondaryButton={true}
-        secondaryBtnLabel={"Cancel Booking"}
-        onAction={cancelReservation}
-      />
-    </div>
+      listing={reservation.listing}
+      showSecondaryButton={true}
+      secondaryBtnLabel={"Cancel Booking"}
+      onAction={cancelReservation}
+    />
   );
 };
 

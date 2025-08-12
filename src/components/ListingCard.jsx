@@ -5,8 +5,10 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import formatMoney from "@/utils/formatMoney";
+import FavoriteBtn from "./FavoriteBtn";
 
 const ListingCard = ({
+  user,
   reservationData,
   listing,
   showSecondaryButton = false,
@@ -18,7 +20,7 @@ const ListingCard = ({
   return (
     <Link
       href={`/listings/${listing.id}`}
-      className=" p-3 rounded shadow border border-gray-200"
+      className=" p-3 rounded shadow border border-gray-200 relative "
     >
       <div className="w-full aspect-square rounded-lg  ">
         <Image
@@ -29,6 +31,7 @@ const ListingCard = ({
           alt={listing.title}
         />
       </div>
+      <FavoriteBtn user={user} listingId={listing.id} className=" absolute top-6 right-6  text-red-500" />
 
       <p className=" font-semibold text-lg md:text-2xl capitalize pt-2">
         {listing.title}
@@ -41,7 +44,7 @@ const ListingCard = ({
           {formatMoney(listing.price)} per night
         </p>
       )}
-      <div className=" text-gray-500">
+      <div className=" text-gray-500 ">
         {countryDetails.label},&nbsp;
         {countryDetails.region}
       </div>
