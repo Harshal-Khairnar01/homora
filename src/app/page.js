@@ -25,7 +25,7 @@ export default async function Home({ searchParams }) {
   return (
     <section className=" ">
       <CategoryHandler />
-      <div className=" grid grid-cols-3 md:grid-cols-6 gap-4 p-4 md:p-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2">
         {listings.map((listing) => {
           return <ListingCard user={user} key={listing.id} listing={listing} />;
         })}
