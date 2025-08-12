@@ -15,7 +15,7 @@ export default function useFavorite({ listingId, user }) {
     if (!user) return router.push("/sign-in");
     try {
       if (isFavorite) {
-        console.log("remove from favv");
+
         const res = await deleteFavorite(listingId);
         if (res.ok) {
           router.refresh();

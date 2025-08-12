@@ -58,6 +58,8 @@ const ReservationComponent = ({ pricePerDay, listingId, reservations }) => {
       if (res.ok) {
         toast("Yee! Property Booked!");
         router.push("/bookings");
+      }else{
+        toast.error(res.message)
       }
     } catch (error) {
       toast.error("oh uh! Error Occured!");

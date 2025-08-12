@@ -12,8 +12,9 @@ import {
 import { useState } from "react";
 import SearchModal from "./SearchModal";
 import Link from "next/link";
+import SignOut from "./SignOut";
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   const [isOpen, setIsOpen] = useState(false);
   const [modalStateStep, setModalStateStep] = useState(-1);
 
@@ -26,10 +27,10 @@ export default function Navbar() {
 
   return (
     <div className=" px-5 md:px-16 flex lg:px-20  justify-between py-3 bg-muted items-center border-b">
-      <div className="logo flex gap-2 items-center">
+      <Link href="/" className="logo flex gap-2 items-center">
         <Icons.logo className=" w-6 " />
         <span className=" text-red-400 font-semibold text-lg">Homora</span>
-      </div>
+      </Link>
       <div className="search-feature flex items-center gap-3 bg-white border-2 border-gray-300 px-4 py-2 rounded-full">
         <div
           className="  hover:bg-gray-200  transition-colors duration-200 cursor-pointer px-3 py-1 rounded-full"
@@ -58,8 +59,15 @@ export default function Navbar() {
           <Search />
         </div>
       </div>
-      <div>
-        <UserComponent />
+
+      <div className=" flex gap-5 ">
+        <Link
+          href="/become-a-host"
+          className=" text-black bg-gray-300 rounded-full px-2 text-sm flex justify-center items-center hover:scale-[1.02] transition-all duration-150"
+        >
+          Become a host
+        </Link>
+        <UserComponent user={user} />
       </div>
       <SearchModal
         key={modalStateStep}
@@ -71,18 +79,36 @@ export default function Navbar() {
   );
 }
 
-const UserComponent = () => {
+const UserComponent = ({user}) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className=" outline-none">
         <CircleUserRound className=" text-red-500" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem> <Link href="/bookings">  My Bookings  </Link> </DropdownMenuItem>
-        <DropdownMenuItem> <Link href="/favorites">  My Favorites  </Link> </DropdownMenuItem>
-        <DropdownMenuItem> <Link href="/properties">  My Properties  </Link> </DropdownMenuItem>
+        <DropdownMenuItem>
+          {" "}
+          <Link href="/bookings"> My Bookings </Link>{" "}
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          {" "}
+          <Link href="/favorites"> My Favorites </Link>{" "}
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          {" "}
+          <Link href="/properties"> My Properties </Link>{" "}
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Airbnb your home</DropdownMenuItem>
+        {user ? (
+          <DropdownMenuItem>
+            <SignOut />
+          </DropdownMenuItem>
+        ):(
+          <DropdownMenuItem>
+           <Link href="/sign-in">Sign in</Link>
+          </DropdownMenuItem>
+        )
+      }
       </DropdownMenuContent>
     </DropdownMenu>
   );

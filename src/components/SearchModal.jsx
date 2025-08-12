@@ -29,7 +29,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
   });
 
   const router = useRouter();
-  const searchParams=useSearchParams();
+  const searchParams = useSearchParams();
 
   const sourceToReturn = {
     [STEPS.LOCATION]: (
@@ -42,7 +42,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
       </div>
     ),
     [STEPS.DATE]: (
-      <div>
+      <div className=" w-full  flex justify-center items-center">
         <CalenderInput
           value={dateRange}
           onChange={(value) => setDateRange(value.selection)}
@@ -50,7 +50,7 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
       </div>
     ),
     [STEPS.DETAILS]: (
-      <div>
+      <div className=" p-4">
         <div className=" flex  justify-between gap-5">
           <h3>How many guests are joining?</h3>
           <CounterInput value={guestCount} onChange={setGuestCount} />
@@ -100,11 +100,9 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
         )
         .join("&");
 
-      
-        const params=new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(searchParams.toString());
 
-        const tempCat=params.get('cat');
-
+      const tempCat = params.get("cat");
 
       const url = `/?${queryString}&cat=${tempCat}`;
       setIsOpen(false);
