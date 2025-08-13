@@ -88,25 +88,23 @@ const UserComponent = ({ user }) => {
         <CircleUserRound className="text-red-500" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+          <Link href="/bookings"> My Bookings </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/favorites"> My Favorites </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/properties"> My Properties </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         {user ? (
-          <>
-            <DropdownMenuItem>
-              <Link href="/bookings"> My Bookings </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/favorites"> My Favorites </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/properties"> My Properties </Link>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <SignOut />
-            </DropdownMenuItem>
-          </>
-        ) : (
           <DropdownMenuItem>
-            <Link href="/sign-in">Sign in</Link>
+            <SignOut />
+          </DropdownMenuItem>
+        ):(
+          <DropdownMenuItem asChild>
+           <Link href="/sign-in">Sign in</Link>
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>
