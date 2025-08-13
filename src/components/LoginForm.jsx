@@ -57,7 +57,7 @@ const LoginForm = ({ origin = "signIn" }) => {
   };
 
   return (
-    <div className=" flex h-[80vh] justify-center items-center">
+    <div className=" flex h-[80vh] justify-center items-center p-8">
       <div className=" space-y-2 w-full sm:w-1/2 mx-auto flex flex-col items-center">
         {origin == "signUp" && (
           <Input {...register("name")} type="text" placeholder="Your name" />
