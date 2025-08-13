@@ -111,9 +111,77 @@ HOMORA enables users to reserve/book properties directly from the single listing
 - Show a summary of all user reservations in their profile.
 - Add cancellation and modification options for reservations.
 
+### My Properties
+
+The **My Properties** page displays all properties listed by the currently authenticated user.
+
+**Key Features:**
+
+- Shows a grid of all properties owned by the user.
+- If no properties exist, prompts the user to add a new property via the "Become a Host" page.
+- Each property is rendered using the `PropertyBox` component.
+
+**How to Use:**
+
+1. Navigate to `/mypages/properties` after signing in.
+2. View, manage, or add new properties.
+
+**Extending:**
+
+- Add property management actions (edit, delete).
+- Show property statistics or booking history.
+
 ---
 
-- **Reservations**: Bookings for properties with date and guest management.
+### My Bookings
+
+The **My Bookings** page lists all reservations made by the user.
+
+**Key Features:**
+
+- Displays a grid of all bookings using the `BookedCard` component.
+- If no bookings exist, prompts the user to make a reservation.
+- Only accessible to authenticated users.
+
+**How to Use:**
+
+1. Navigate to `/mypages/bookings` after signing in.
+2. View all your reservations.
+
+**Extending:**
+
+- Add booking cancellation or modification options.
+- Show booking details and payment status.
+
+---
+
+### My Favorites
+
+The **My Favorites** page shows all properties the user has marked as favorites.
+
+**Key Features:**
+
+- Displays a grid of favorite listings using the `ListingCard` component.
+- If no favorites exist, prompts the user to add favorites.
+- Only accessible to authenticated users.
+
+**How to Use:**
+
+1. Navigate to `/mypages/favorites` after signing in.
+2. View and manage your favorite properties.
+
+**Extending:**
+
+- Allow users to remove favorites.
+- Add sorting or filtering options.
+
+---
+
+**Other User Pages:**  
+If you have additional user-centric pages (e.g., profile, dashboard), document their purpose and features similarly.
+
+---
+
 - **Favorites**: Users can favorite properties.
 - **Responsive UI**: Built with Tailwind CSS and Radix UI components.
 - **API Routes**: RESTful endpoints for authentication and registration.
