@@ -20,8 +20,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${poppins.className} antialiased`}>
+        <div className=" w-full fixed top-0 left-0 z-50">
+
         <Navbar user={session?.user} />
+        </div>
+        <div className=" w-full mt-20 pt-1">
+
         {children}
+        </div>
         <Toaster position="top-center" richColors duration={3000} closeButton />
       </body>
     </html>
