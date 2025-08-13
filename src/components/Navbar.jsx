@@ -56,7 +56,7 @@ export default function Navbar({ user }) {
         </div>
       </div>
 
-      <div className="flex gap-2 md:gap-5 items-center p-4 md:p-1">
+      <div className="flex gap-1 md:gap-5 items-center p-4 md:p-1">
         <Link
           href="/become-a-host"
           className="text-black rounded-full px-2 text-sm flex justify-center items-center hover:scale-[1.02] transition-all duration-150"
