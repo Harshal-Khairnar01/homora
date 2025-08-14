@@ -152,7 +152,7 @@ const BecomeAHostComponent = () => {
         <div className=" flex justify-between">
           <span>
             <h3 className=" text-lg font-semibold text-gray-600">
-              How many rooms do you want?
+              How many rooms In your property
             </h3>
             <h5>Choose a room count</h5>
           </span>
@@ -165,7 +165,7 @@ const BecomeAHostComponent = () => {
         <div className=" flex justify-between">
           <span>
             <h3 className=" text-lg font-semibold text-gray-600">
-              How many children do you have?
+              How many children can stay in your property?
             </h3>
             <h5>Choose a children count</h5>
           </span>
@@ -178,7 +178,7 @@ const BecomeAHostComponent = () => {
         <div className=" flex justify-between">
           <span>
             <h3 className=" text-lg font-semibold text-gray-600">
-              How many Adults are planning to join?
+              How many Adults can stay in your property?
             </h3>
             <h5>Choose a guest count</h5>
           </span>
