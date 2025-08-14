@@ -53,13 +53,21 @@ export default async function SignleListingPage({ params }) {
                   })}
                 </p>
               </span>
-              <Image
-                className=" rounded-full"
-                src={data.user.image}
-                width={30}
-                height={30}
-                alt="owner"
-              />
+              {data.user.image ? (
+                <Image
+                  className=" rounded-full"
+                  src={data.user.image}
+                  width={30}
+                  height={30}
+                  alt="owner"
+                />
+              ) : (
+                <div className=" rounded-full bg-green-300 w-[30px] h-[30px] flex items-center justify-center">
+                  <span className="text-gray-500">
+                    {data.user.name.toUpperCase().charAt(0)}
+                  </span>
+                </div>
+              )}
             </div>
             <hr />
             <div className=" flex gap-4">

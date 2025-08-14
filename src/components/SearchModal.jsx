@@ -19,8 +19,8 @@ const SearchModal = ({ isOpen, setIsOpen, stepAt }) => {
 
   const [location, setLocation] = useState();
   const [guestCount, setGuestCount] = useState(2);
-  const [roomCount, setRoomCount] = useState(1);
-  const [childCount, setChildCount] = useState(1);
+  const [roomCount, setRoomCount] = useState(0);
+  const [childCount, setChildCount] = useState(0);
 
   const [dateRange, setDateRange] = useState({
     startDate: new Date(),

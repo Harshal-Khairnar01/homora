@@ -35,7 +35,7 @@ export default function Navbar({ user }) {
       </Link>
 
       <div
-        className="search-feature flex items-center gap-3 bg-white border-2 border-gray-300 px-4 py-2 rounded-full cursor-pointer transition-shadow duration-200 hover:shadow-md md:w-auto w-full justify-between"
+        className="  search-feature flex items-center gap-3 bg-white border-2 border-gray-300 px-4 py-2 rounded-full cursor-pointer transition-shadow duration-200 hover:shadow-md md:w-auto w-full justify-between"
         onClick={() => openSearchModalStep(0)}
       >
         <div className="hidden md:flex items-center gap-3">
@@ -87,7 +87,7 @@ const UserComponent = ({ user }) => {
       <DropdownMenuTrigger className="outline-none">
         <CircleUserRound className="text-red-500" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className=" w-20">
         <DropdownMenuItem asChild>
           <Link href="/bookings"> My Bookings </Link>
         </DropdownMenuItem>
